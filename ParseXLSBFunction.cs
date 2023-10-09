@@ -8,13 +8,13 @@ namespace main.function
 {
     public class ParseXLSBFunction
     {
-        [FunctionName("FnDigiIpEPBlobBrigger")]
+        [FunctionName("FnDigiIpEPBlobTrigger")]
         public void Run([BlobTrigger("samples/{name}", Connection = "AzureWebJobsStorage")]Stream myBlob,
                         [Blob("output/{name}.xlsx", FileAccess.Write, Connection = "AzureWebJobsStorage")] Stream outputBlob, 
                         string name, ILogger log)
         {
             System.DateTime start = System.DateTime.Now;
-            log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} ");
+            log.LogInformation($"C# FnDigiIpEPBlobTrigger Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} ");
             Workbook workbook = new Workbook();
             workbook.LoadFromStream(myBlob);
             // Get the "Blank 3-U" worksheet
