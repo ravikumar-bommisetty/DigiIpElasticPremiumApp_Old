@@ -26,8 +26,8 @@ namespace main.function
             outputWorkbook.SaveToStream(outputBlob, FileFormat.Version2013);
 
             // Dispose the workbook
-            workbook.Dispose();
-            outputWorkbook.Dispose();
+            //workbook.Dispose();
+            //outputWorkbook.Dispose();
             System.DateTime end = System.DateTime.Now;
             log.LogInformation($" DigiIP C# Azure Function execution time: {end-start}"); 
         }
